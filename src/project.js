@@ -1,11 +1,8 @@
-function createProject(title, description) {
-    //notes
-    //checklist.
-
-    //const getReputation = () => reputation;
-    //const giveReputation = () => reputation++;
-
-    return { title, description };
+class Project {
+    constructor(title, description) {
+        this.title = title;
+        this.description = description;
+    }
 }
 
 export default createProject;

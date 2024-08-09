@@ -1,11 +1,11 @@
-function createToDo(title, description, dueDate, priority, project) {
-    //notes
-    //checklist.
-
-    //const getReputation = () => reputation;
-    //const giveReputation = () => reputation++;
-
-    return { title, description, dueDate, priority };
+class TodoItem {
+    constructor(title, description, dueDate, priority, project) {
+        this.title = title;
+        this.description = description;
+        this.dueDate = dueDate;
+        this.priority = priority;
+        this.project = project;
+    }
 }
 
-export default createToDo;
+export default TodoItem;

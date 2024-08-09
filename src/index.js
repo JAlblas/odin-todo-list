@@ -1,8 +1,9 @@
-import createToDo from './todo';
-import createProject from './project';
+import TodoItem from './Todo';
+import TodoManager from './todoManager';
+
 
 import './style.css';
 
 
-createToDo();
-createProject();
+const manager = new TodoManager();
+manager.saveTodos();
