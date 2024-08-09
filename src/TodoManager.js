@@ -5,6 +5,10 @@ class TodoManager {
         this.todos = [new TodoItem("title", "description", new Date(), "High", 1), new TodoItem("title 2", "description 2", new Date(), "Low", 0)];
     }
 
+    getTodos() {
+        return this.todos;
+    }
+
     saveTodos() {
 
         try {

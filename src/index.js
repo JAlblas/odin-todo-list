@@ -1,9 +1,12 @@
-import TodoItem from './Todo';
-import TodoManager from './todoManager';
 
+import TodoManager from './todoManager';
+import Viewcontroller from './Viewcontroller';
 
 import './style.css';
 
+const todoManager = new TodoManager();
+todoManager.saveTodos();
 
-const manager = new TodoManager();
-manager.saveTodos();
+const vc = new Viewcontroller(todoManager);
+vc.reloadProjects();
+
