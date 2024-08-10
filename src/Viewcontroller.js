@@ -6,15 +6,45 @@ class Viewcontroller {
     }
 
     reloadTodos(todoManager) {
-        let projectsDiv = document.querySelector('#project-list');
-        let tasksDiv = document.querySelector('#todo-list');
+        const projectsDiv = document.querySelector('#project-list');
+        const tasksDiv = document.querySelector('#todo-list');
 
         const todos = this.todoManager.getTodos();
 
         todos.map((todo) => {
-            let todoDiv = document.createElement('div');
+            const todoDiv = document.createElement('div');
             todoDiv.className = "todo";
-            todoDiv.innerHTML = todo.title;
+
+            const info = document.createElement('div');
+            info.className = "todo-info";
+
+            const title = document.createElement('div');
+            title.innerHTML = todo.title;
+            title.className = "todo-title";
+            info.append(title);
+
+            const date = document.createElement('div');
+            date.innerHTML = todo.dueDate;
+            date.className = "todo-date";
+            info.append(date);
+
+            todoDiv.append(info);
+
+            const buttons = document.createElement('div');
+            buttons.className = "todo-buttons";
+
+            const editButton = document.createElement('button');
+            editButton.innerHTML = "Edit";
+            editButton.className = "todo-edit";
+            buttons.append(editButton);
+
+            const deleteButton = document.createElement('button');
+            deleteButton.innerHTML = "Delete";
+            deleteButton.className = "todo-delete";
+            buttons.append(deleteButton);
+
+            todoDiv.append(buttons);
+
             tasksDiv.appendChild(todoDiv);
         })
     }
