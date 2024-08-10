@@ -5,7 +5,7 @@ class Viewcontroller {
         this.todoManager = todoManager;
     }
 
-    reloadProjects(todoManager) {
+    reloadTodos(todoManager) {
         let projectsDiv = document.querySelector('#project-list');
         let tasksDiv = document.querySelector('#todo-list');
 
@@ -13,6 +13,7 @@ class Viewcontroller {
 
         todos.map((todo) => {
             let todoDiv = document.createElement('div');
+            todoDiv.className = "todo";
             todoDiv.innerHTML = todo.title;
             tasksDiv.appendChild(todoDiv);
         })

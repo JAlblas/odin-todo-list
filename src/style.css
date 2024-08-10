@@ -1,3 +1,77 @@
+:root {
+    --background-color: #57474c;
+    --header-color: #3b3033;
+    --todo-color: hsl(0, 0%, 100%);
+    --light-text: #FFF;
+}
+
+html {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Alata', sans-serif;
+    font-size: 16px;
+}
+
+body {
+    background-color: #EFEFEF;
+    margin: 0px;
+}
+
 #container {
+    height: 100vh;
     display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: 80px;
+    background-color: var(--header-color);
+    color: var(--light-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    background-color: var(--background-color);
+    color: var(--light-text)
+}
+
+footer {
+    height: 40px;
+    background-color: var(--header-color);
+    color: var(--light-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#projects {
+    flex: 1;
+    background-color: #FFF;
+    padding: 25px;
+    color: #000;
+}
+
+#project-list {}
+
+#todos {
+    flex: 4;
+    padding: 25px;
+
+}
+
+#todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.todo {
+    background-color: var(--todo-color);
+    color: #000;
+    padding: 25px;
+    border-radius: 5px;
 }

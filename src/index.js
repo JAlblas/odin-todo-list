@@ -8,5 +8,5 @@ const todoManager = new TodoManager();
 todoManager.saveTodos();
 
 const vc = new Viewcontroller(todoManager);
-vc.reloadProjects();
+vc.reloadTodos();
 
