@@ -48,15 +48,6 @@ footer {
     justify-content: center;
 }
 
-#projects {
-    flex: 1;
-    background-color: #FFF;
-    padding: 25px;
-    color: #000;
-}
-
-#project-list {}
-
 button {
     padding: 10px 25px;
     border: 0;
@@ -66,6 +57,47 @@ button {
     color: #FFF;
     cursor: pointer;
 }
+
+#projects {
+    flex: 1;
+    background-color: #FFF;
+    padding: 25px;
+    color: #000;
+}
+
+#project-list {
+    padding-bottom: 25px;
+}
+
+.project {
+    background-color: var(--background-color);
+    color: #FFF;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+}
+
+.project button {
+    color: var(--background-color);
+    background-color: #FFF;
+}
+
+.project-info {
+    display: inline-block;
+}
+
+.project-buttons {
+    display: inline-block;
+    display: flex;
+    gap: 10px;
+}
+
 
 #todos {
     flex: 4;

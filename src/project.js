@@ -5,4 +5,4 @@ class Project {
     }
 }
 
-export default createProject;
+export default Project;
