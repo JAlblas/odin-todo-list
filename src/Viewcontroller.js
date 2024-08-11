@@ -12,13 +12,12 @@ class Viewcontroller {
 
         const todos = this.todoManager.getTodos();
 
-        todos.map((todo) => {
+        todos.map((todo, index) => {
             const todoDiv = document.createElement('div');
             todoDiv.className = "todo";
+            todoDiv.dataset.index = index;
 
             // Basic section
-
-
             const basic = document.createElement('div');
             basic.className = "todo-basic";
 
@@ -90,6 +89,7 @@ class Viewcontroller {
         projects.map((project) => {
             const projectDiv = document.createElement('div');
             projectDiv.className = "project";
+            projectDiv.dataset.id = project.id;
 
             const info = document.createElement('div');
             info.className = "project-info";

@@ -145,7 +145,6 @@ button {
     pointer-events: none;
 }
 
-
 .todo-basic {
     display: flex;
     justify-content: space-between;
