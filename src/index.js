@@ -7,10 +7,8 @@ import './style.css';
 const todoManager = new TodoManager();
 const projectManager = new ProjectManager();
 
-const projectCreateSection = document.querySelector('#project-create-menu');
-const projectCreate = document.querySelector('#project-create-form');
 const addProjectButton = document.querySelector('.add-project');
-
+const addTodoButton = document.querySelector('.add-todo');
 
 //todoManager.loadTodos();
 projectManager.loadProjects();
@@ -18,10 +16,12 @@ projectManager.loadProjects();
 const vc = new Viewcontroller(projectManager, todoManager);
 
 addProjectButton.addEventListener("click", (e) => {
-    //projectCreateSection.style.display = 'initial';
     vc.addProjectCreationMenu();
 })
 
+addTodoButton.addEventListener("click", (e) => {
+    vc.addTodoDCreationMenu();
+})
 
 
 vc.reloadTodos();

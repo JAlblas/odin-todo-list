@@ -131,14 +131,50 @@ button {
 .todo {
     background-color: var(--todo-color);
     color: #000;
-    padding: 25px;
+    padding: 20px;
     border-radius: 5px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
+    transition: max-height 0.5s linear;
+    overflow: hidden;
 }
 
-.todo-info {}
+.todo * {
+    pointer-events: none;
+}
+
+
+.todo-basic {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-title {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.todo-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.todo-details {
+    max-height: 0;
+    /* Hidden by default */
+    transition: max-height 0.5s linear, padding 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo.expanded .todo-details {
+    max-height: 1000px;
+    /* Arbitrarily large value */
+    padding: 10px;
+}
 
 .todo-buttons {
     display: flex;
@@ -159,12 +195,20 @@ button.add-todo {
 
 #todo-create-menu {
     display: initial;
+    background-color: #FFF;
+    padding: 25px;
 }
 
 #todo-create-menu form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+#todo-create-menu button {
+    background-color: var(--background-color);
+    color: #FFF;
+    width: 100px;
 }
 
 #todo-create {

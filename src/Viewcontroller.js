@@ -15,9 +15,15 @@ class Viewcontroller {
             const todoDiv = document.createElement('div');
             todoDiv.className = "todo";
 
+            // Basic section
+
+
+            const basic = document.createElement('div');
+            basic.className = "todo-basic";
+
             const checkmark = document.createElement('button');
             if (todo.checked == true ? checkmark.className = "checkmark-btn" : checkmark.className = "checkmark-btn unchecked");
-            todoDiv.append(checkmark);
+            basic.append(checkmark);
 
             const info = document.createElement('div');
             info.className = "todo-info";
@@ -32,7 +38,7 @@ class Viewcontroller {
             date.className = "todo-date";
             info.append(date);
 
-            todoDiv.append(info);
+            basic.append(info);
 
             const buttons = document.createElement('div');
             buttons.className = "todo-buttons";
@@ -47,7 +53,28 @@ class Viewcontroller {
             deleteButton.className = "todo-delete";
             buttons.append(deleteButton);
 
-            todoDiv.append(buttons);
+            basic.append(buttons);
+            todoDiv.appendChild(basic);
+
+            // Details 
+            const details = document.createElement('div');
+            details.className = "todo-details";
+
+            const description = document.createElement('p');
+            description.textContent = todo.description;
+            details.append(description);
+
+            const priority = document.createElement('p');
+            priority.textContent = todo.priority;
+            details.append(priority);
+
+            todoDiv.appendChild(details);
+
+            todoDiv.addEventListener("click", (e) => {
+
+                e.target.classList.toggle('expanded');
+            })
+
 
             tasksDiv.appendChild(todoDiv);
         })
@@ -85,6 +112,7 @@ class Viewcontroller {
             deleteButton.innerHTML = "Delete";
             deleteButton.className = "todo-delete";
             buttons.append(deleteButton);
+
 
             projectDiv.append(buttons);
 
@@ -171,6 +199,29 @@ class Viewcontroller {
         const todoCreateForm = document.createElement('form');
         todoCreateForm.id = 'todo-create-form';
 
+        todoCreateForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            console.log("SUBMIT");
+
+            /*
+            const projectName = document.querySelector('#project-name');
+            const projectDescription = document.querySelector('#project-description');
+
+            const name = projectName.value;
+            const description = projectDescription.value;
+
+            this.projectManager.createProject(name, description);
+
+            projectName.value = "";
+            projectDescription.value = "";
+
+            projectCreateForm.style.display = 'none';
+
+            this.projectManager.saveProjects();
+            this.reloadProjects();
+            */
+        })
+
         // Create the input element for 'todo-name'
         const todoNameInput = document.createElement('input');
         todoNameInput.type = 'text';
@@ -216,11 +267,10 @@ class Viewcontroller {
         todoCreateForm.appendChild(priorityInput);
         todoCreateForm.appendChild(todoCreateButton);
 
-        // Append the form to the div element
         todoCreateMenu.appendChild(todoCreateForm);
 
+        document.querySelector('#todo-list').appendChild(todoCreateMenu);
     }
-
 }
 
 export default Viewcontroller;
