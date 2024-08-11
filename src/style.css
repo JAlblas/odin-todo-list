@@ -107,9 +107,7 @@ button {
     margin-top: 10px;
 }
 
-#project-create-menu {
-    display: none;
-}
+#project-create-menu {}
 
 #project-create-menu form {
     display: flex;
@@ -137,6 +135,7 @@ button {
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .todo-info {}
@@ -150,4 +149,101 @@ button.add-todo {
     color: var(--background-color);
     background-color: #FFF;
     ;
+}
+
+.project-create-menu {}
+
+.add-todo {
+    margin-top: 10px;
+}
+
+#todo-create-menu {
+    display: initial;
+}
+
+#todo-create-menu form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#todo-create {
+    background-color: #FFF;
+    color: var(--background-color);
+}
+
+/* Basic button styling */
+.checkmark-btn {
+    background-color: #4CAF50;
+    /* Green background */
+    border: none;
+    /* Remove borders */
+    color: white;
+    /* White text color */
+    padding: 10px 20px;
+    /* Some padding */
+    text-align: center;
+    /* Center the text */
+    text-decoration: none;
+    /* Remove underline */
+    display: inline-block;
+    /* Make the button inline-block */
+    font-size: 16px;
+    /* Increase font size */
+    margin: 4px 2px;
+    /* Some margin */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    border-radius: 50%;
+    /* Make the button round */
+    position: relative;
+    /* For positioning the checkmark */
+    width: 50px;
+    /* Fixed width */
+    height: 50px;
+    /* Fixed height */
+}
+
+/* Styling the checkmark */
+.checkmark-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 16px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+    /* Corrected rotation */
+}
+
+/* Hover effect */
+.checkmark-btn:hover {
+    background-color: #45a049;
+    /* Darker green */
+}
+
+
+/* Styling for unchecked version */
+.unchecked {
+    background-color: #ccc;
+    /* Gray background for unchecked */
+}
+
+/* Ensure the unchecked version has no checkmark */
+.unchecked::before {
+    content: none;
+    /* Remove the checkmark */
+}
+
+/* Hover effect for both states */
+.checkmark-btn:hover {
+    background-color: #45a049;
+    /* Darker green */
+}
+
+.unchecked:hover {
+    background-color: #aaa;
+    /* Darker gray on hover */
 }
