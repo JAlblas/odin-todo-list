@@ -2,11 +2,15 @@ import Project from './Project';
 
 class ProjectManager {
     constructor() {
-        this.projects = [new Project("Main", "testing")];
+        this.currentProject = null;
     }
 
     getProjects() {
         return this.projects;
+    }
+
+    setCurrentProject(id) {
+        this.currentProject = id;
     }
 
     createProject(name, description) {
