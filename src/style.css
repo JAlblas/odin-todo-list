@@ -149,6 +149,8 @@ button {
 .todo-basic {
     display: flex;
     justify-content: space-between;
+    gap: 25px;
+
 }
 
 .todo-title {
@@ -160,6 +162,7 @@ button {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    flex: 5;
 }
 
 .todo-details {

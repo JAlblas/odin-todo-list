@@ -14,7 +14,7 @@ class TodoManager {
     createTodo(name, description, date, priority, projectId) {
         console.log("CREATING TODO");
         console.log(name, description, date, priority, projectId);
-        this.projects.push(new TodoItem(name, description, false, Date(), "High", 0));
+        this.todos.push(new TodoItem(name, description, false, date, priority, projectId));
     }
 
     deleteTodo(index) {

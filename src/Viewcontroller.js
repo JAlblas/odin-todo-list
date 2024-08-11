@@ -8,6 +8,7 @@ class Viewcontroller {
 
     reloadTodos() {
         const tasksDiv = document.querySelector('#todo-list');
+        tasksDiv.innerHTML = "";
 
         const todos = this.todoManager.getTodos();
 
@@ -203,23 +204,28 @@ class Viewcontroller {
             e.preventDefault();
             console.log("SUBMIT");
 
-            /*
-            const projectName = document.querySelector('#project-name');
-            const projectDescription = document.querySelector('#project-description');
+            const todoName = document.querySelector('#todo-name');
+            const todoDescription = document.querySelector('#todo-description');
+            const todoDate = document.querySelector('#todo-date');
+            const todoPriority = document.querySelector('#todo-priority');
 
-            const name = projectName.value;
-            const description = projectDescription.value;
+            const name = todoName.value;
+            const description = todoDescription.value;
+            const date = todoDate.value;
+            const priority = todoPriority.value;
 
-            this.projectManager.createProject(name, description);
+            this.todoManager.createTodo(name, description, date, priority, 0);
 
-            projectName.value = "";
-            projectDescription.value = "";
+            todoName.value = "";
+            todoDescription.value = "";
+            todoDate.value = "";
+            todoPriority.value = "";
 
-            projectCreateForm.style.display = 'none';
+            todoCreateForm.style.display = 'none';
 
-            this.projectManager.saveProjects();
-            this.reloadProjects();
-            */
+            this.todoManager.saveTodos();
+            this.reloadTodos();
+
         })
 
         // Create the input element for 'todo-name'
@@ -249,7 +255,7 @@ class Viewcontroller {
         // Create the input element for 'priority'
         const priorityInput = document.createElement('input');
         priorityInput.type = 'text';
-        priorityInput.id = 'priority';
+        priorityInput.id = 'todo-priority';
         priorityInput.name = 'priority';
         priorityInput.placeholder = 'Priority';
         priorityInput.required = true;
