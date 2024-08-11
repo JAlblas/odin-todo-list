@@ -9,6 +9,12 @@ class ProjectManager {
         return this.projects;
     }
 
+    createProject(name, description) {
+        console.log("CREATING");
+        console.log(name, description);
+        this.projects.push(new Project(name, description));
+    }
+
     saveProjects() {
 
         try {
@@ -19,16 +25,13 @@ class ProjectManager {
     }
 
     loadProjects() {
-        /*
-        const todosFromStorage = JSON.parse(localStorage.getItem("todos")) || [];
-        this.todos = todosFromStorage.map(todo => new TodoItem(
-            todo.title,
-            todo.description,
-            new Date(todo.dueDate),
-            todo.priority,
-            todo.id
+
+        const projectsromStorage = JSON.parse(localStorage.getItem("projects")) || [];
+        this.projects = projectsromStorage.map(project => new Project(
+            project.title,
+            project.description
         ));
-        */
+
     }
 }
 

@@ -17,13 +17,23 @@
             <aside id="projects">
                 <h2>Projects</h2>
                 <div id="project-list"></div>
+                <div id="project-create-menu">
+                    <form id="project-create-form">
+                        <input type="text" id="project-name" name="task" placeholder="Name:" required>
+                        <input type="text" id="project-description" name="description" placeholder="Description"
+                            required>
+                        <button type="submit" id="project-create">Save</button>
+                    </form>
+                </div>
                 <button class="add-project">Add Project</button>
+
             </aside>
             <div id="todos">
                 <h2>Todo</h2>
                 <div id="todo-list">
                 </div>
                 <button class="add-todo">Add Todo</button>
+
             </div>
         </main>
 

@@ -51,6 +51,7 @@ class Viewcontroller {
 
     reloadProjects() {
         const projectsDiv = document.querySelector('#project-list');
+        projectsDiv.innerHTML = "";
 
         const projects = this.projectManager.getProjects();
 
@@ -85,6 +86,11 @@ class Viewcontroller {
 
             projectsDiv.appendChild(projectDiv);
         })
+    }
+
+    addProjectCreationMenu() {
+        document.querySelector('.project-create-menu');
+
     }
 
 }

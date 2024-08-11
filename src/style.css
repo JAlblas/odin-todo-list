@@ -67,6 +67,9 @@ button {
 
 #project-list {
     padding-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .project {
@@ -98,6 +101,21 @@ button {
     gap: 10px;
 }
 
+.project-create-menu {}
+
+.add-project {
+    margin-top: 10px;
+}
+
+#project-create-menu {
+    display: none;
+}
+
+#project-create-menu form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
 #todos {
     flex: 4;
