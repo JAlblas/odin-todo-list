@@ -23,14 +23,12 @@ addTodoButton.addEventListener("click", (e) => {
     vc.addTodoDCreationMenu();
 })
 
-
 vc.reloadTodos();
 vc.reloadProjects();
 
 
 /*
 TODO:
-Edit Todo
 Save Todos to specific project
 Format date
 README.md

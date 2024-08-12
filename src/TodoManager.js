@@ -10,7 +10,8 @@ class TodoManager {
     }
 
     createTodo(title, description, date, priority, projectId) {
-        this.todos.push(new TodoItem(title, description, false, date, priority, projectId));
+        console.log(title, description, date, priority, projectId)
+        this.todos.push(new TodoItem(null, title, description, false, date, priority, projectId));
     }
 
     updateTodo(id, title, description, date, priority, projectId) {

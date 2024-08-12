@@ -306,8 +306,9 @@ class Viewcontroller {
             const priority = todoPriorityInput.value;
 
             if (todo == null) {
+                console.log("freate event")
                 console.log(name, description, date, priority)
-                this.todoManager.createTodo(null, name, description, date, priority, 0);
+                this.todoManager.createTodo(name, description, date, priority, 0);
             } else {
                 this.todoManager.updateTodo(todo.id, name, description, date, priority, 0);
             }
