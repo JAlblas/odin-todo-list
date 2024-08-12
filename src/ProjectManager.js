@@ -5,22 +5,27 @@ class ProjectManager {
         this.currentProject = null;
     }
 
-    getProjects() {
-        return this.projects;
-    }
-
     setCurrentProject(id) {
         this.currentProject = id;
     }
 
+    getProjects() {
+        return this.projects;
+    }
+
     createProject(name, description) {
-        console.log("CREATING");
-        console.log(name, description);
         this.projects.push(new Project(name, description));
     }
 
-    saveProjects() {
+    deleteProject(id) {
+        this.projects = this.projects.filter((project) => {
+            return project.id != id;
+        });
 
+        this.saveProjects();
+    }
+
+    saveProjects() {
         try {
             localStorage.setItem("projects", JSON.stringify(this.projects));
         } catch (e) {
@@ -29,7 +34,6 @@ class ProjectManager {
     }
 
     loadProjects() {
-
         const projectsromStorage = JSON.parse(localStorage.getItem("projects")) || [];
         this.projects = projectsromStorage.map(project => new Project(
             project.title,

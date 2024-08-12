@@ -33,9 +33,7 @@ vc.reloadProjects();
 TODO:
 
 Delte Project
-Delete Todo
 Toggle Todo
-Toggle Projects
 Edit Project
 Edit Todo
 Format date

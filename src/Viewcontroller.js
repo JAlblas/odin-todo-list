@@ -53,10 +53,8 @@ class Viewcontroller {
             deleteButton.className = "todo-delete";
 
             deleteButton.addEventListener("click", (e) => {
-                //e.stopPropagation();
-
+                e.stopPropagation();
                 deleteButton.parentElement.parentElement.parentElement.remove();
-                console.log("HI")
                 this.todoManager.deleteTodo(index);
 
             })
@@ -125,10 +123,12 @@ class Viewcontroller {
 
             deleteButton.addEventListener("click", (e) => {
                 e.stopPropagation();
-                console.log(e.parent);
 
+                deleteButton.parentElement.parentElement.remove();
 
-
+                const id = project.id;
+                console.log(id);
+                this.projectManager.deleteProject(id);
             })
 
             buttons.append(deleteButton);
