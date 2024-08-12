@@ -110,6 +110,7 @@ button {
 
 .add-project {
     margin-top: 10px;
+    background-color: var(--header-color);
 }
 
 #project-create-menu {}

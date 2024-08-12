@@ -28,11 +28,13 @@ vc.reloadTodos();
 vc.reloadProjects();
 
 
-
 /*
 TODO:
-Edit Project
 Edit Todo
+Save Todos to specific project
 Format date
+README.md
+deploy
+
 
 */

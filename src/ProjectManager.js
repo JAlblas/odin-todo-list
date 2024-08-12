@@ -17,6 +17,12 @@ class ProjectManager {
         this.projects.push(new Project(name, description));
     }
 
+    updateProject(id, title, description) {
+        const project = this.projects.find(project => project.id === id);
+        project.title = title;
+        project.description = description;
+    }
+
     deleteProject(id) {
         this.projects = this.projects.filter((project) => {
             return project.id != id;

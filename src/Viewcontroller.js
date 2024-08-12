@@ -128,6 +128,13 @@ class Viewcontroller {
             editButton.className = "project-edit";
             buttons.append(editButton);
 
+            editButton.addEventListener("click", (e) => {
+                e.stopPropagation();
+
+                const id = project.id;
+                this.addProjectCreationMenu(project);
+            })
+
             const deleteButton = document.createElement('button');
             deleteButton.innerHTML = "Delete";
             deleteButton.className = "project-delete";
@@ -151,7 +158,7 @@ class Viewcontroller {
         })
     }
 
-    addProjectCreationMenu() {
+    addProjectCreationMenu(project) {
 
         // Create the div element with id 'project-create-menu'
         const projectCreateMenu = document.createElement('div');
@@ -183,6 +190,15 @@ class Viewcontroller {
         projectCreateButton.id = 'project-create';
         projectCreateButton.textContent = 'Save'; // Set the text inside the button
 
+        if (project == null) {
+            projectNameInput.value = "";
+            projectDescriptionInput.value = "";
+        } else {
+            projectNameInput.value = project.title;
+            projectDescriptionInput.value = project.description;
+        }
+
+
         // Append the input elements and button to the form
         projectCreateForm.appendChild(projectNameInput);
         projectCreateForm.appendChild(projectDescriptionInput);
@@ -198,7 +214,12 @@ class Viewcontroller {
             const name = projectName.value;
             const description = projectDescription.value;
 
-            this.projectManager.createProject(name, description);
+            if (project == null) {
+                this.projectManager.createProject(name, description);
+            } else {
+                this.projectManager.updateProject(project.id, name, description);
+            }
+
 
             projectName.value = "";
             projectDescription.value = "";
