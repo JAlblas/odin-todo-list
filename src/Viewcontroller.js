@@ -10,7 +10,7 @@ class Viewcontroller {
         const tasksDiv = document.querySelector('#todo-list');
         tasksDiv.innerHTML = "";
 
-        const todos = this.todoManager.getTodos();
+        const todos = this.todoManager.getTodos(this.projectManager.currentProject);
 
         todos.map((todo, index) => {
             const todoDiv = document.createElement('div');
@@ -104,6 +104,7 @@ class Viewcontroller {
     }
 
     reloadProjects() {
+
         const projectsDiv = document.querySelector('#project-list');
         projectsDiv.innerHTML = "";
 
@@ -113,6 +114,10 @@ class Viewcontroller {
             const projectDiv = document.createElement('div');
             projectDiv.className = "project";
             projectDiv.dataset.id = project.id;
+
+            if (this.projectManager.currentProject === project.id) {
+                projectDiv.classList.add("selected");
+            }
 
             const info = document.createElement('div');
             info.className = "project-info";
@@ -145,7 +150,6 @@ class Viewcontroller {
                 e.stopPropagation();
 
                 deleteButton.parentElement.parentElement.remove();
-
                 const id = project.id;
                 this.projectManager.deleteProject(id);
             })
@@ -155,7 +159,21 @@ class Viewcontroller {
 
             projectDiv.append(buttons);
 
+            projectDiv.addEventListener("click", () => {
+
+                if (project.id === this.projectManager.currentProject) {
+                    return;
+                } else {
+                    this.projectManager.setCurrentProject(project.id);
+                    projectDiv.classList.toggle('selected');
+                    this.reloadProjects();
+                    this.reloadTodos();
+                }
+            })
+
+
             projectsDiv.appendChild(projectDiv);
+
         })
     }
 
@@ -229,6 +247,7 @@ class Viewcontroller {
 
             this.projectManager.saveProjects();
             this.reloadProjects();
+            this.reloadTodos();
         })
 
         // Append the form to the div element
@@ -306,11 +325,9 @@ class Viewcontroller {
             const priority = todoPriorityInput.value;
 
             if (todo == null) {
-                console.log("freate event")
-                console.log(name, description, date, priority)
-                this.todoManager.createTodo(name, description, date, priority, 0);
+                this.todoManager.createTodo(name, description, date, priority, this.projectManager.currentProject);
             } else {
-                this.todoManager.updateTodo(todo.id, name, description, date, priority, 0);
+                this.todoManager.updateTodo(todo.id, name, description, date, priority, null);
             }
 
             todoTitleInput.value = "";

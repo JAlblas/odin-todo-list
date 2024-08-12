@@ -10,9 +10,6 @@ const projectManager = new ProjectManager();
 const addProjectButton = document.querySelector('.add-project');
 const addTodoButton = document.querySelector('.add-todo');
 
-//todoManager.loadTodos();
-projectManager.loadProjects();
-
 const vc = new Viewcontroller(projectManager, todoManager);
 
 addProjectButton.addEventListener("click", (e) => {
@@ -23,13 +20,12 @@ addTodoButton.addEventListener("click", (e) => {
     vc.addTodoDCreationMenu();
 })
 
-vc.reloadTodos();
 vc.reloadProjects();
+vc.reloadTodos();
+
 
 
 /*
-TODO:
-Save Todos to specific project
 Format date
 README.md
 deploy

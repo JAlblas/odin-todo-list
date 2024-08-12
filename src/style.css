@@ -91,6 +91,10 @@ button {
 
 }
 
+.project.selected {
+    background-color: #0f3f83;
+}
+
 .project button {
     color: var(--background-color);
     background-color: var(--secondary-bg-color);

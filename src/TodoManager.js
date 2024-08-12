@@ -5,8 +5,8 @@ class TodoManager {
         this.loadTodos();
     }
 
-    getTodos() {
-        return this.todos;
+    getTodos(projectId) {
+        return this.todos.filter(todo => todo.projectId == projectId);
     }
 
     createTodo(title, description, date, priority, projectId) {

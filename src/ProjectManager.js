@@ -2,11 +2,20 @@ import Project from './Project';
 
 class ProjectManager {
     constructor() {
-        this.currentProject = null;
+        this.loadProjects();
+        this.setCurrentProject(null);
+        console.log("CP")
+        console.log(this.currentProject);
+
     }
 
     setCurrentProject(id) {
-        this.currentProject = id;
+        if (id === null) {
+
+            this.currentProject = this.projects[0].id;
+        } else {
+            this.currentProject = id;
+        }
     }
 
     getProjects() {
@@ -14,7 +23,9 @@ class ProjectManager {
     }
 
     createProject(name, description) {
-        this.projects.push(new Project(name, description));
+        const newProject = new Project(null, name, description);
+        this.projects.push(newProject);
+        this.setCurrentProject(newProject.id);
     }
 
     updateProject(id, title, description) {
