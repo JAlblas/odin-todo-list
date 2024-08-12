@@ -27,3 +27,18 @@ addTodoButton.addEventListener("click", (e) => {
 vc.reloadTodos();
 vc.reloadProjects();
 
+
+
+/*
+TODO:
+
+Use Grid instead of flex
+Delte Project
+Delete Todo
+Toggle Todo
+Toggle Projects
+Edit Project
+Edit Todo
+Format date
+
+*/
