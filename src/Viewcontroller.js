@@ -51,6 +51,16 @@ class Viewcontroller {
             const deleteButton = document.createElement('button');
             deleteButton.innerHTML = "Delete";
             deleteButton.className = "todo-delete";
+
+            deleteButton.addEventListener("click", (e) => {
+                //e.stopPropagation();
+
+                deleteButton.parentElement.parentElement.parentElement.remove();
+                console.log("HI")
+                this.todoManager.deleteTodo(index);
+
+            })
+
             buttons.append(deleteButton);
 
             basic.append(buttons);
@@ -72,7 +82,7 @@ class Viewcontroller {
 
             todoDiv.addEventListener("click", (e) => {
 
-                e.target.classList.toggle('expanded');
+                todoDiv.classList.toggle('expanded');
             })
 
 
@@ -112,6 +122,15 @@ class Viewcontroller {
             const deleteButton = document.createElement('button');
             deleteButton.innerHTML = "Delete";
             deleteButton.className = "todo-delete";
+
+            deleteButton.addEventListener("click", (e) => {
+                e.stopPropagation();
+                console.log(e.parent);
+
+
+
+            })
+
             buttons.append(deleteButton);
 
 

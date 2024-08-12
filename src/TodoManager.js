@@ -18,7 +18,11 @@ class TodoManager {
     }
 
     deleteTodo(index) {
-        //this.todo
+        this.todos = this.todos.filter((todo, i) => {
+            return i != index;
+        });
+
+        this.saveTodos();
     }
 
     saveTodos() {

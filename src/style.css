@@ -145,9 +145,7 @@ button {
     overflow: hidden;
 }
 
-.todo * {
-    pointer-events: none;
-}
+.todo * {}
 
 .todo-basic {
     display: flex;
@@ -170,7 +168,6 @@ button {
 
 .todo-details {
     max-height: 0;
-    /* Hidden by default */
     transition: max-height 0.5s linear, padding 0.3s ease-in-out;
     display: flex;
     justify-content: space-between;
@@ -178,7 +175,6 @@ button {
 
 .todo.expanded .todo-details {
     max-height: 1000px;
-    /* Arbitrarily large value */
     padding: 10px;
 }
 

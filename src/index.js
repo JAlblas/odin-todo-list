@@ -32,7 +32,6 @@ vc.reloadProjects();
 /*
 TODO:
 
-Use Grid instead of flex
 Delte Project
 Delete Todo
 Toggle Todo
