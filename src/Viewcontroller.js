@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 
 class Viewcontroller {
 
@@ -42,7 +43,8 @@ class Viewcontroller {
             info.append(title);
 
             const date = document.createElement('div');
-            date.innerHTML = todo.dueDate;
+
+            date.innerHTML = format(todo.dueDate, "MM/dd/yyyy");
             date.className = "todo-date";
             info.append(date);
 
@@ -225,7 +227,6 @@ class Viewcontroller {
 
         projectCreateForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            console.log("SUBMIT");
 
             const projectName = document.querySelector('#project-name');
             const projectDescription = document.querySelector('#project-description');
@@ -289,7 +290,7 @@ class Viewcontroller {
 
         // Create the input element for 'todo-date'
         const todoDateInput = document.createElement('input');
-        todoDateInput.type = 'text';
+        todoDateInput.type = 'date';
         todoDateInput.id = 'todo-date';
         todoDateInput.name = 'date';
         todoDateInput.placeholder = 'Due date:';
@@ -312,7 +313,7 @@ class Viewcontroller {
 
             todoTitleInput.value = todo.title;
             todoDescriptionInput.value = todo.description;
-            todoDateInput.value = todo.dueDate;
+            todoDateInput.value = format(todo.dueDate, "MM/dd/yyyy");
             todoPriorityInput.value = todo.priority;
         }
 

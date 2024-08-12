@@ -26,7 +26,6 @@ vc.reloadTodos();
 
 
 /*
-Format date
 README.md
 deploy
 
