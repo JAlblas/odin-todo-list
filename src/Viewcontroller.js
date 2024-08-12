@@ -23,6 +23,15 @@ class Viewcontroller {
 
             const checkmark = document.createElement('button');
             if (todo.checked == true ? checkmark.className = "checkmark-btn" : checkmark.className = "checkmark-btn unchecked");
+
+            checkmark.addEventListener("click", (e) => {
+                console.log("CLICK")
+                e.stopPropagation();
+                this.todoManager.toggleTodo(index);
+                this.todoManager.saveTodos();
+                this.reloadTodos();
+            })
+
             basic.append(checkmark);
 
             const info = document.createElement('div');

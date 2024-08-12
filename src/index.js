@@ -32,7 +32,6 @@ vc.reloadProjects();
 /*
 TODO:
 
-Delte Project
 Toggle Todo
 Edit Project
 Edit Todo

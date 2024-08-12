@@ -12,9 +12,12 @@ class TodoManager {
     }
 
     createTodo(name, description, date, priority, projectId) {
-        console.log("CREATING TODO");
-        console.log(name, description, date, priority, projectId);
         this.todos.push(new TodoItem(name, description, false, date, priority, projectId));
+    }
+
+    toggleTodo(index) {
+        const item = this.todos[index];
+        item.checked = !item.checked;
     }
 
     deleteTodo(index) {
