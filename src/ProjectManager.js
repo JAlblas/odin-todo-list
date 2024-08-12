@@ -2,16 +2,20 @@ import Project from './Project';
 
 class ProjectManager {
     constructor() {
+
         this.loadProjects();
+
+
+        if (this.projects.length === 0) {
+            this.projects.push(new Project(null, "Default", "The default project"));
+        }
+
         this.setCurrentProject(null);
-        console.log("CP")
-        console.log(this.currentProject);
 
     }
 
     setCurrentProject(id) {
         if (id === null) {
-
             this.currentProject = this.projects[0].id;
         } else {
             this.currentProject = id;
