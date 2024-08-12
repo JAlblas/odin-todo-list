@@ -3,6 +3,7 @@
     --header-color: #3b3033;
     --secondary-bg-color: hsl(0, 0%, 100%);
     --light-text: #FFF;
+    --delete-color: rgb(169, 6, 6);
 }
 
 html {
@@ -181,6 +182,15 @@ button {
 .todo-buttons {
     display: flex;
     gap: 20px;
+}
+
+button.todo-delete,
+button.project-delete {
+    background-color: rgb(169, 6, 6);
+}
+
+button.project-delete {
+    color: #FFF;
 }
 
 button.add-todo {

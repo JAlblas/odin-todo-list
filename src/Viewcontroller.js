@@ -78,11 +78,13 @@ class Viewcontroller {
             details.className = "todo-details";
 
             const description = document.createElement('p');
+            description.className = "todo-description";
             description.textContent = todo.description;
             details.append(description);
 
             const priority = document.createElement('p');
-            priority.textContent = todo.priority;
+            priority.className = "todo-priority";
+            priority.textContent = `Priority: ${todo.priority}`;
             details.append(priority);
 
             todoDiv.appendChild(details);
@@ -128,7 +130,7 @@ class Viewcontroller {
 
             const deleteButton = document.createElement('button');
             deleteButton.innerHTML = "Delete";
-            deleteButton.className = "todo-delete";
+            deleteButton.className = "project-delete";
 
             deleteButton.addEventListener("click", (e) => {
                 e.stopPropagation();

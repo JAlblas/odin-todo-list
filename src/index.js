@@ -31,8 +31,6 @@ vc.reloadProjects();
 
 /*
 TODO:
-
-Toggle Todo
 Edit Project
 Edit Todo
 Format date
