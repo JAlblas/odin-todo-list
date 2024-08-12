@@ -25,7 +25,6 @@ class Viewcontroller {
             if (todo.checked == true ? checkmark.className = "checkmark-btn" : checkmark.className = "checkmark-btn unchecked");
 
             checkmark.addEventListener("click", (e) => {
-                console.log("CLICK")
                 e.stopPropagation();
                 this.todoManager.toggleTodo(index);
                 this.todoManager.saveTodos();
@@ -55,6 +54,13 @@ class Viewcontroller {
             const editButton = document.createElement('button');
             editButton.innerHTML = "Edit";
             editButton.className = "todo-edit";
+
+            editButton.addEventListener("click", (e) => {
+                e.stopPropagation();
+                this.addTodoDCreationMenu(todo);
+            })
+
+
             buttons.append(editButton);
 
             const deleteButton = document.createElement('button');
@@ -64,8 +70,7 @@ class Viewcontroller {
             deleteButton.addEventListener("click", (e) => {
                 e.stopPropagation();
                 deleteButton.parentElement.parentElement.parentElement.remove();
-                this.todoManager.deleteTodo(index);
-
+                this.todoManager.deleteTodo(todo.id);
             })
 
             buttons.append(deleteButton);
@@ -73,7 +78,7 @@ class Viewcontroller {
             basic.append(buttons);
             todoDiv.appendChild(basic);
 
-            // Details 
+            // Details
             const details = document.createElement('div');
             details.className = "todo-details";
 
@@ -93,7 +98,6 @@ class Viewcontroller {
 
                 todoDiv.classList.toggle('expanded');
             })
-
 
             tasksDiv.appendChild(todoDiv);
         })
@@ -130,8 +134,6 @@ class Viewcontroller {
 
             editButton.addEventListener("click", (e) => {
                 e.stopPropagation();
-
-                const id = project.id;
                 this.addProjectCreationMenu(project);
             })
 
@@ -145,7 +147,6 @@ class Viewcontroller {
                 deleteButton.parentElement.parentElement.remove();
 
                 const id = project.id;
-                console.log(id);
                 this.projectManager.deleteProject(id);
             })
 
@@ -238,10 +239,9 @@ class Viewcontroller {
         document.querySelector('#project-list').appendChild(projectCreateMenu);
 
 
-
     }
 
-    addTodoDCreationMenu() {
+    addTodoDCreationMenu(todo) {
 
         // Create the div element with id 'todo-create-menu'
         const todoCreateMenu = document.createElement('div');
@@ -251,41 +251,14 @@ class Viewcontroller {
         const todoCreateForm = document.createElement('form');
         todoCreateForm.id = 'todo-create-form';
 
-        todoCreateForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            console.log("SUBMIT");
-
-            const todoName = document.querySelector('#todo-name');
-            const todoDescription = document.querySelector('#todo-description');
-            const todoDate = document.querySelector('#todo-date');
-            const todoPriority = document.querySelector('#todo-priority');
-
-            const name = todoName.value;
-            const description = todoDescription.value;
-            const date = todoDate.value;
-            const priority = todoPriority.value;
-
-            this.todoManager.createTodo(name, description, date, priority, 0);
-
-            todoName.value = "";
-            todoDescription.value = "";
-            todoDate.value = "";
-            todoPriority.value = "";
-
-            todoCreateForm.style.display = 'none';
-
-            this.todoManager.saveTodos();
-            this.reloadTodos();
-
-        })
 
         // Create the input element for 'todo-name'
-        const todoNameInput = document.createElement('input');
-        todoNameInput.type = 'text';
-        todoNameInput.id = 'todo-name';
-        todoNameInput.name = 'task';
-        todoNameInput.placeholder = 'Name:';
-        todoNameInput.required = true;
+        const todoTitleInput = document.createElement('input');
+        todoTitleInput.type = 'text';
+        todoTitleInput.id = 'todo-name';
+        todoTitleInput.name = 'task';
+        todoTitleInput.placeholder = 'Name:';
+        todoTitleInput.required = true;
 
         // Create the input element for 'todo-description'
         const todoDescriptionInput = document.createElement('input');
@@ -304,12 +277,53 @@ class Viewcontroller {
         todoDateInput.required = true;
 
         // Create the input element for 'priority'
-        const priorityInput = document.createElement('input');
-        priorityInput.type = 'text';
-        priorityInput.id = 'todo-priority';
-        priorityInput.name = 'priority';
-        priorityInput.placeholder = 'Priority';
-        priorityInput.required = true;
+        const todoPriorityInput = document.createElement('input');
+        todoPriorityInput.type = 'text';
+        todoPriorityInput.id = 'todo-priority';
+        todoPriorityInput.name = 'priority';
+        todoPriorityInput.placeholder = 'Priority';
+        todoPriorityInput.required = true;
+
+        if (todo == null) {
+            todoTitleInput.value = "";
+            todoDescriptionInput.value = "";
+            todoDateInput.value = "";
+            todoPriorityInput.value = "";
+        } else if (todo !== null) {
+
+            todoTitleInput.value = todo.title;
+            todoDescriptionInput.value = todo.description;
+            todoDateInput.value = todo.dueDate;
+            todoPriorityInput.value = todo.priority;
+        }
+
+        todoCreateForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const name = todoTitleInput.value;
+            const description = todoDescriptionInput.value;
+            const date = todoDateInput.value;
+            const priority = todoPriorityInput.value;
+
+            if (todo == null) {
+                console.log(name, description, date, priority)
+                this.todoManager.createTodo(null, name, description, date, priority, 0);
+            } else {
+                this.todoManager.updateTodo(todo.id, name, description, date, priority, 0);
+            }
+
+            todoTitleInput.value = "";
+            todoDescriptionInput.value = "";
+            todoDateInput.value = "";
+            todoPriorityInput.value = "";
+
+            todoCreateForm.style.display = 'none';
+
+            this.todoManager.saveTodos();
+            this.reloadTodos();
+
+        })
+
 
         // Create the button element for submitting the form
         const todoCreateButton = document.createElement('button');
@@ -318,10 +332,10 @@ class Viewcontroller {
         todoCreateButton.textContent = 'Save';
 
         // Append the input elements and button to the form
-        todoCreateForm.appendChild(todoNameInput);
+        todoCreateForm.appendChild(todoTitleInput);
         todoCreateForm.appendChild(todoDescriptionInput);
         todoCreateForm.appendChild(todoDateInput);
-        todoCreateForm.appendChild(priorityInput);
+        todoCreateForm.appendChild(todoPriorityInput);
         todoCreateForm.appendChild(todoCreateButton);
 
         todoCreateMenu.appendChild(todoCreateForm);

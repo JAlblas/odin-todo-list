@@ -42,6 +42,7 @@ class ProjectManager {
     loadProjects() {
         const projectsromStorage = JSON.parse(localStorage.getItem("projects")) || [];
         this.projects = projectsromStorage.map(project => new Project(
+            project.id,
             project.title,
             project.description
         ));
