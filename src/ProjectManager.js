@@ -5,9 +5,8 @@ class ProjectManager {
 
         this.loadProjects();
 
-
         if (this.projects.length === 0) {
-            this.projects.push(new Project(null, "Default", "The default project"));
+            this.createProject("Default", "The default project");
             this.saveProjects();
         }
 
