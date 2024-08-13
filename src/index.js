@@ -22,12 +22,3 @@ addTodoButton.addEventListener("click", (e) => {
 
 vc.reloadProjects();
 vc.reloadTodos();
-
-
-
-/*
-README.md
-deploy
-
-
-*/

@@ -1,7 +1,6 @@
 import { format } from "date-fns";
 
 class Viewcontroller {
-
     constructor(projectManager, todoManager) {
         this.projectManager = projectManager;
         this.todoManager = todoManager;
@@ -172,10 +171,7 @@ class Viewcontroller {
                     this.reloadTodos();
                 }
             })
-
-
             projectsDiv.appendChild(projectDiv);
-
         })
     }
 
@@ -218,7 +214,6 @@ class Viewcontroller {
             projectNameInput.value = project.title;
             projectDescriptionInput.value = project.description;
         }
-
 
         // Append the input elements and button to the form
         projectCreateForm.appendChild(projectNameInput);
@@ -270,7 +265,6 @@ class Viewcontroller {
         // Create the form element with id 'todo-create-form'
         const todoCreateForm = document.createElement('form');
         todoCreateForm.id = 'todo-create-form';
-
 
         // Create the input element for 'todo-name'
         const todoTitleInput = document.createElement('input');
