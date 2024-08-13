@@ -1,310 +1,297 @@
 :root {
-    --background-color: #57474c;
-    --header-color: #3b3033;
-    --secondary-bg-color: hsl(0, 0%, 100%);
-    --light-text: #FFF;
-    --delete-color: rgb(169, 6, 6);
+  --background-color: #57474c;
+  --header-color: #3b3033;
+  --secondary-bg-color: hsl(0, 0%, 100%);
+  --light-text: #fff;
+  --delete-color: rgb(169, 6, 6);
 }
 
 html {
-    padding: 0px;
-    margin: 0px;
-    font-family: 'Alata', sans-serif;
-    font-size: 16px;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Alata", sans-serif;
+  font-size: 16px;
 }
 
 body {
-    margin: 0px;
+  margin: 0px;
 }
 
 #container {
-    height: 100vh;
-    display: grid;
-    grid-template-rows: 80px 1fr 40px;
-    grid-template-columns: 1fr 3fr;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 80px 1fr 40px;
+  grid-template-columns: 1fr 3fr;
 }
 
 header {
-    background-color: var(--header-color);
-    color: var(--light-text);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
+  background-color: var(--header-color);
+  color: var(--light-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
 }
 
 main {
-    grid-column: 1 / 3;
-    grid-row: 2 / 3;
-    display: flex;
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  display: flex;
 
-    background-color: var(--background-color);
-    color: var(--light-text);
+  background-color: var(--background-color);
+  color: var(--light-text);
 }
 
 footer {
-    background-color: var(--header-color);
-    color: var(--light-text);
-    grid-column: 1 / 3;
-    grid-row: 3 / 4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: var(--header-color);
+  color: var(--light-text);
+  grid-column: 1 / 3;
+  grid-row: 3 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button {
-    padding: 10px 25px;
-    border: 0;
-    border-radius: 5px;
-    background-color: var(--background-color);
-    font-weight: bold;
-    color: #FFF;
-    cursor: pointer;
+  padding: 10px 25px;
+  border: 0;
+  border-radius: 5px;
+  background-color: var(--background-color);
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
 }
 
 #projects {
-    flex: 1;
-    background-color: var(--secondary-bg-color);
-    padding: 25px;
-    color: #000;
+  flex: 1;
+  background-color: var(--secondary-bg-color);
+  padding: 25px;
+  color: #000;
 }
 
 #project-list {
-    padding-bottom: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  padding-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .project {
-    background-color: var(--background-color);
-    color: var(--secondary-bg-color);
-    font-size: 1.3rem;
-    font-weight: bold;
-    padding: 15px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-
+  background-color: var(--background-color);
+  color: var(--secondary-bg-color);
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
 .project.selected {
-    background-color: #0f3f83;
+  background-color: #0f3f83;
 }
 
 .project button {
-    color: var(--background-color);
-    background-color: var(--secondary-bg-color);
+  color: var(--background-color);
+  background-color: var(--secondary-bg-color);
 }
 
 .project-info {
-    display: inline-block;
+  display: inline-block;
 }
 
 .project-buttons {
-    display: inline-block;
-    display: flex;
-    gap: 10px;
+  display: inline-block;
+  display: flex;
+  gap: 10px;
 }
-
-.project-create-menu {}
 
 .add-project {
-    margin-top: 10px;
-    background-color: var(--header-color);
+  margin-top: 10px;
+  background-color: var(--header-color);
 }
 
-#project-create-menu {}
-
 #project-create-menu form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 #todos {
-    flex: 4;
-    padding: 25px;
-
+  flex: 4;
+  padding: 25px;
 }
 
 #todo-list {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    padding-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding-bottom: 25px;
 }
 
 .todo {
-    background-color: var(--secondary-bg-color);
-    color: #000;
-    padding: 20px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    transition: max-height 0.5s linear;
-    overflow: hidden;
+  background-color: var(--secondary-bg-color);
+  color: #000;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: max-height 0.5s linear;
+  overflow: hidden;
 }
 
-.todo * {}
-
 .todo-basic {
-    display: flex;
-    justify-content: space-between;
-    gap: 25px;
-
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
 }
 
 .todo-title {
-    font-weight: bold;
-    font-size: 1.2em;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 .todo-info {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 5;
 }
 
 .todo-details {
-    max-height: 0;
-    transition: max-height 0.5s linear, padding 0.3s ease-in-out;
-    display: flex;
-    justify-content: space-between;
+  max-height: 0;
+  transition: max-height 0.5s linear, padding 0.3s ease-in-out;
+  display: flex;
+  justify-content: space-between;
 }
 
 .todo.expanded .todo-details {
-    max-height: 1000px;
-    padding: 10px;
+  max-height: 1000px;
+  padding: 10px;
 }
 
 .todo-buttons {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 button.todo-delete,
 button.project-delete {
-    background-color: rgb(169, 6, 6);
+  background-color: rgb(169, 6, 6);
 }
 
 button.project-delete {
-    color: #FFF;
+  color: #fff;
 }
 
 button.add-todo {
-    color: var(--background-color);
-    background-color: var(--secondary-bg-color);
-    ;
+  color: var(--background-color);
+  background-color: var(--secondary-bg-color);
 }
 
-.project-create-menu {}
-
 .add-todo {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 #todo-create-menu {
-    display: initial;
-    background-color: var(--secondary-bg-color);
-    padding: 25px;
+  display: initial;
+  background-color: var(--secondary-bg-color);
+  padding: 25px;
 }
 
 #todo-create-menu form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 #todo-create-menu button {
-    background-color: var(--background-color);
-    color: #FFF;
-    width: 100px;
+  background-color: var(--background-color);
+  color: #fff;
+  width: 100px;
 }
 
 #todo-create {
-    background-color: #FFF;
-    color: var(--background-color);
+  background-color: #fff;
+  color: var(--background-color);
 }
 
 /* Basic button styling */
 .checkmark-btn {
-    background-color: #4CAF50;
-    /* Green background */
-    border: none;
-    /* Remove borders */
-    color: white;
-    /* White text color */
-    padding: 10px 20px;
-    /* Some padding */
-    text-align: center;
-    /* Center the text */
-    text-decoration: none;
-    /* Remove underline */
-    display: inline-block;
-    /* Make the button inline-block */
-    font-size: 16px;
-    /* Increase font size */
-    margin: 4px 2px;
-    /* Some margin */
-    cursor: pointer;
-    /* Pointer cursor on hover */
-    border-radius: 50%;
-    /* Make the button round */
-    position: relative;
-    /* For positioning the checkmark */
-    width: 50px;
-    /* Fixed width */
-    height: 50px;
-    /* Fixed height */
+  background-color: #4caf50;
+  /* Green background */
+  border: none;
+  /* Remove borders */
+  color: white;
+  /* White text color */
+  padding: 10px 20px;
+  /* Some padding */
+  text-align: center;
+  /* Center the text */
+  text-decoration: none;
+  /* Remove underline */
+  display: inline-block;
+  /* Make the button inline-block */
+  font-size: 16px;
+  /* Increase font size */
+  margin: 4px 2px;
+  /* Some margin */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  border-radius: 50%;
+  /* Make the button round */
+  position: relative;
+  /* For positioning the checkmark */
+  width: 50px;
+  /* Fixed width */
+  height: 50px;
+  /* Fixed height */
 }
 
 /* Styling the checkmark */
 .checkmark-btn::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 8px;
-    height: 16px;
-    border: solid white;
-    border-width: 0 4px 4px 0;
-    transform: translate(-50%, -50%) rotate(45deg);
-    /* Corrected rotation */
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 16px;
+  border: solid white;
+  border-width: 0 4px 4px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+  /* Corrected rotation */
 }
 
 /* Hover effect */
 .checkmark-btn:hover {
-    background-color: #45a049;
-    /* Darker green */
+  background-color: #45a049;
+  /* Darker green */
 }
-
 
 /* Styling for unchecked version */
 .unchecked {
-    background-color: #ccc;
-    /* Gray background for unchecked */
+  background-color: #ccc;
+  /* Gray background for unchecked */
 }
 
 /* Ensure the unchecked version has no checkmark */
 .unchecked::before {
-    content: none;
-    /* Remove the checkmark */
+  content: none;
+  /* Remove the checkmark */
 }
 
 /* Hover effect for both states */
 .checkmark-btn:hover {
-    background-color: #45a049;
-    /* Darker green */
+  background-color: #45a049;
+  /* Darker green */
 }
 
 .unchecked:hover {
-    background-color: #aaa;
-    /* Darker gray on hover */
+  background-color: #aaa;
+  /* Darker gray on hover */
 }
