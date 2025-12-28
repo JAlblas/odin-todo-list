@@ -1,9 +1,10 @@
 :root {
-  --background-color: #57474c;
-  --header-color: #3b3033;
+  --background-color: #74686c;
+  --header-color: #423539;
   --secondary-bg-color: hsl(0, 0%, 100%);
   --light-text: #fff;
   --delete-color: rgb(169, 6, 6);
+  --selected-project: #0f3f83;
 }
 
 html {
@@ -91,7 +92,7 @@ button {
 }
 
 .project.selected {
-  background-color: #0f3f83;
+  background-color: var(--selected-project);
 }
 
 .project button {
@@ -110,7 +111,7 @@ button {
 }
 
 .add-project {
-  margin-top: 10px;
+  margin-bottom: 20px;
   background-color: var(--header-color);
 }
 
@@ -122,7 +123,7 @@ button {
 
 #todos {
   flex: 4;
-  padding: 25px;
+  padding: 20px;
 }
 
 #todo-list {
@@ -158,9 +159,21 @@ button {
 
 .todo-info {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 25px;
   flex: 5;
+}
+
+.todo-priority {
+  background-color: var(--selected-project);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
 }
 
 .todo-details {
@@ -190,8 +203,9 @@ button.project-delete {
 }
 
 button.add-todo {
-  color: var(--background-color);
-  background-color: var(--secondary-bg-color);
+  color: var(--secondary-bg-color);
+  background-color: var(--header-color);
+  margin-bottom: 20px;
 }
 
 .add-todo {
